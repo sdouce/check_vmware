@@ -115,30 +115,7 @@ def main():
                 count = count
         print count
 
-        
-        
-
-        # for host in host_list:
-        #     overallCpuUsage = float(host.summary.quickStats.overallCpuUsage)
-        #     cpuMhz = float(host.summary.hardware.cpuMhz)
-        #     numCpuCores = float(host.summary.hardware.numCpuCores)
-
-        #     percent = round(
-        #         (overallCpuUsage / (numCpuCores * cpuMhz) * 100), 2)
-
-        # output = str(percent)+"% | cpu_usage="+str(percent)+";"+str(warning)+";"+str(critical)+";0;100"
-
-        # if percent >= int(critical):
-        #     print "CRITICAL - " + str(output)
-        #     sys.exit(2)
-        # elif percent >= int(warning):
-        #     print "WARNING - " + str(output)
-        #     sys.exit(1)
-        # else:
-        #     print "OK - " + str(output)
-        #     sys.exit(0)
-        # obj_host.Destroy()
-
+    
     except vmodl.MethodFault, e:
         print "Caught vmodl fault : " + e.msg
         sys.exit(2)
