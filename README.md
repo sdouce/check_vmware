@@ -13,20 +13,14 @@ Every plugins use for authentification a local csv based file :
 I prefer separate action plugins by plugins . 
 
 
-   define service{
-        use                     generic-service
-        name                    TPL-CLUSTER-VSAN-HEALTH
-        check_command           CHK_CLUSTER_VSAN_HEALTH
-        register                0
-        _VISIBLE_EXTRANET       YES
-        notifications_enabled   1
-        notification_options    w,c,r
-        event_handler_enabled   0
-            _WARN 100
-            _OPTIONS
-   }
-
-   define command{
-        command_name    CHK_CLUSTER_VSAN_HEALTH
-        command_line    $USER1$/vsan/vsan_cluster_health.py -H $_HOSTVCENTER$ -A $_HOSTAUTH$ -c $_HOSTCLUSTER$ -C $_SERVICEGROUP$ -O    '$_SERVICEHEALTHTEST$'
+    define service{
+            use                     generic-service
+            name                    TPL-CLUSTER-VSAN-HEALTH
+            check_command           CHK_CLUSTER_VSAN_HEALTH
+            register                0
+    }
+    define command{
+            command_name    CHK_CLUSTER_VSAN_HEALTH
+            command_line    $USER1$/vsan/vsan_cluster_health.py -H $_HOSTVCENTER$ -A $_HOSTAUTH$ -c $_HOSTCLUSTER$ -C $_SERVICEGROUP$ -O    '$_SERVICEHEALTHTEST$'
+    }
 
