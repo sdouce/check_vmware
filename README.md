@@ -21,6 +21,6 @@ I prefer separate action plugins by plugins .
     }
     define command{
             command_name    CHK_CLUSTER_VSAN_HEALTH
-            command_line    $USER1$/vsan/vsan_cluster_health.py -H $_HOSTVCENTER$ -A $_HOSTAUTH$ -c $_HOSTCLUSTER$ -C $_SERVICEGROUP$ -O    '$_SERVICEHEALTHTEST$'
+            command_line    $USER1$/vsan/vsan_cluster_health.py -H $_HOSTVCENTER$ -A $_HOSTAUTH$ -c $_HOSTCLUSTER$ -C $_SERVICEGROUP$ -O '$_SERVICEHEALTHTEST$'
     }
 
