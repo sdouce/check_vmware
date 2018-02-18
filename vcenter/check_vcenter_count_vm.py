@@ -102,9 +102,7 @@ def main():
         vm_list = obj_vm.view
         obj_host.Destroy()
         obj_vm.Destroy()
-        #dc = obj_host.hostname
-
-        #print vm_list
+     
  
         count=0
         for vm in vm_list:
@@ -118,38 +116,19 @@ def main():
         
         VMCOUNT=0
         if VMCOUNT < count:
-            print "OK : Le NOMBRE de VM ACTIVE SONT  " + str(count)
+            print "OK : Active VM :  " + str(count)
             sys.exit(0)
         elif VMCOUNT == count :
-            print "WARNING : Il n y a pas e VM actiove sur les le VCENTER " + str(count)
+            print "WARNING : No Active VM for this VCENTER " + str(count)
             sys.exit(1)  
         elif count is None:
-            print "CRITICAL : probléme d'accé au VM du  VCENTER " + str(count)
+            print "CRITICAL : VCENTER Access Problem" + str(count)
             sys.exit(3)      
 
         
         
 
-        # for host in host_list:
-        #     overallCpuUsage = float(host.summary.quickStats.overallCpuUsage)
-        #     cpuMhz = float(host.summary.hardware.cpuMhz)
-        #     numCpuCores = float(host.summary.hardware.numCpuCores)
 
-        #     percent = round(
-        #         (overallCpuUsage / (numCpuCores * cpuMhz) * 100), 2)
-
-        # output = str(percent)+"% | cpu_usage="+str(percent)+";"+str(warning)+";"+str(critical)+";0;100"
-
-        # if percent >= int(critical):
-        #     print "CRITICAL - " + str(output)
-        #     sys.exit(2)
-        # elif percent >= int(warning):
-        #     print "WARNING - " + str(output)
-        #     sys.exit(1)
-        # else:
-        #     print "OK - " + str(output)
-        #     sys.exit(0)
-        # obj_host.Destroy()
 
     except vmodl.MethodFault, e:
         print "Caught vmodl fault : " + e.msg
